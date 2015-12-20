@@ -26,7 +26,7 @@ if(Input::exists()) {
 	        'required' => true,
 	        'min' => 4,
 	        'max' => 50
-	    ),
+	    )
 	));
 	
 	if($validation->passed()) {
@@ -35,6 +35,7 @@ if(Input::exists()) {
 		$salt = Hash::salt(32);
 		
 		try{
+			
 			$user->create(array(
 			    'username' => Input::get('username'),
 			    'password' => Hash::make(Input::get('password'), $salt),
